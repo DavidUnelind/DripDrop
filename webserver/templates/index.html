@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>DripDrop</title>
+  <link rel="icon" type="image/png" href="../static/images/newDroneIcon.png">
+  <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+  <script type="text/javascript">
+    function Submit() {
+      var from_addr = document.getElementById('faddr').value;
+      var to_addr = document.getElementById('taddr').value;
+      var data = { "faddr": from_addr,
+                   "taddr": to_addr,
+                 }
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          try{
+            var resp = this.responseText;
+            alert(resp);
+          }
+          catch(err){
+            alert(this.responseText);
+          }
+        }
+      };
+      xhttp.open("POST", "http://192.168.1.1:5002/planner", true);
+      xhttp.send(JSON.stringify(data));
+    }
+  </script>
+  <script type="text/javascript">
+    function LoadDrone(droneID, x, y, status) {
+      var doc = document.getElementById("map");
+      $( doc ).ready(function() {
+      var doc_svg = doc.getSVGDocument();
+      if(doc_svg != null){
+          var svg = doc_svg.getElementById("map-svg");
+          var circleNode = svg.getElementById(droneID);
+          var color = 'red';
+          if (status == 'idle'){
+            color = 'green'
+          }
+          if (status == 'waiting'){
+            color = 'yellow'
+          }
+          if(circleNode == null){
+            circleNode = doc_svg.createElementNS("http://www.w3.org/2000/svg", "circle");
+            circleNode.setAttributeNS(null, 'cx', x);
+            circleNode.setAttributeNS(null, 'cy', y);
+            circleNode.setAttributeNS(null, 'r', '5');
+            circleNode.setAttributeNS(null, 'fill', color);
+            circleNode.setAttributeNS(null, 'id', droneID);
+            svg.appendChild(circleNode);  }
+          else{
+            circleNode.setAttributeNS(null, 'cx', x);
+            circleNode.setAttributeNS(null, 'cy', y);
+            circleNode.setAttributeNS(null, 'fill', color);
+          }
+      }
+      else{
+          console.log("Could not load doc_svg!");
+      }
+      
+    }
+  )
+}
+  </script> 
+</head>
+
+<body>
+  <p>Current Position: </p>
+  <div id="txt"></div>
+  <form action="javascript:Submit()">
+    <label for="fname">From address:</label><br>
+    <input type="text" id="faddr" name="faddr"><br>
+    <label for="lname">To address:</label><br>
+    <input type="text" id="taddr" name="taddr"><br><br>
+    <input type="submit" value="Search addresses">
+  </form>
+  <object id="map" data="static/images/lund-map.svg" type="image/svg+xml" ></object>
+  <script>
+    var set_delay = 50,
+    callout = function () {
+    $.ajax({
+      url: 'http://192.168.1.1:5000/get_drones'
+    })
+    .done(function (server_response) {
+      var avalaible_drones = Object.keys(server_response)
+      for (const droneID of avalaible_drones){
+        var x = server_response[droneID].longitude
+        var y = server_response[droneID].latitude
+        var status = server_response[droneID].status
+        LoadDrone(droneID, x, y, status)
+      }
+    })
+    .always(function (server_response) {
+        setTimeout(callout, set_delay);
+    });
+    };
+    callout();    
+  </script>
+
+
+</body>
+</html>
