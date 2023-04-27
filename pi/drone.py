@@ -31,7 +31,6 @@ drone_info = {'id': myID,
                 'latitude': float(current_latitude),
                 'status': 'idle'
             }
-print("hej" + str(current_longitude) + str(current_latitude))
 
 # Fill in the IP address of the server, and send the initial location of the drone to the SERVER
 #===================================================================
