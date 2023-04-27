@@ -11,7 +11,7 @@ app.secret_key = 'dljsaklqk24e21cjn!Ew@@dsa5'
 
 #Give a unique ID for the drone
 #===================================================================
-myID = "1"
+myID = "2"
 #===================================================================
 
 # Get initial longitude and latitude the drone
@@ -34,7 +34,7 @@ drone_info = {'id': myID,
 
 # Fill in the IP address of the server, and send the initial location of the drone to the SERVER
 #===================================================================
-SERVER="http://192.168.1.1:5001/drone"
+SERVER="http://192.168.1.3:5001/drone"
 with requests.Session() as session:
     resp = session.post(SERVER, json=drone_info)
 #===================================================================
