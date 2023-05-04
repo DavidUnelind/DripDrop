@@ -38,6 +38,3 @@ export FLASK_APP=drone.py
 export FLASK_ENV=development
 flask run --host 0.0.0.0
 ```
-
-Note: Don't user `python3 build.py` to run the servers, since this does not porvide all the functionalities requied by the application.
-
