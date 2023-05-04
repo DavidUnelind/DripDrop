@@ -102,10 +102,9 @@ nav{
 
 .map{
     width: 90%;
-    margin-top: 900px;
-    margin-left: 70%;
+    margin-top: 400px;
     color: black;
-    position: relative ;
+    position: relative;
     top: 90%;
     left: 10%;
     transform: translate(-50%,-50%);
@@ -155,6 +154,97 @@ footer{
 }
 .fa-heart-o {
     color: darkred;
+}
+
+/* ----------- About Page ------------- */
+
+.about{
+    width: 80%;
+    margin: auto;
+    padding-top: 200px;
+    padding-bottom: 50px;
+}
+.row{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.about-col{
+    flex-basis: 48%;
+    padding: 30px 2px;
+}
+.about-col img{
+    width: 50%;
+
+}
+.about-col h1{
+    padding-top: 0;
+}
+.about-col p{
+    padding: 15px 0 25px;
+}
+.blue-btn{
+    border: 1px solid steelblue;
+    background: transparent;
+    color: steelblue;
+}
+.blue-btn:hover{
+    color: white;
+}
+
+/* Team pics */
+.team{
+    /* do the top two do anything??*/
+    /*width: 80%;
+    margin: auto;*/
+    text-align: center;
+    padding-top: 50px;
+}
+.team-col{
+    flex-basis: 32%;
+    border-radius: 10px; /* round the corners */
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+.team-col img{
+    /* size of image*/
+    width: 100%;
+    /*height: 100%; <-- works too(fix bottom of image)*/
+    display: block;
+}
+.layer{
+    background: transparent;
+    /* covers the whole image: */
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transition: 0.5s;
+}
+.layer:hover{
+    background: rgba(104,195,163,0.5);
+}
+.layer h3{
+    width: 100%;
+    font-weight: 500;
+    color: white;
+    font-size: 32px;
+    bottom: 0; /*location of text, if not in center there'll be a swipe motion when hover*/
+    /*transform: translateX(-50%); <-- moves the text to the left*/
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s;
+}
+/*text visible when cursor is over image*/
+.layer:hover h3{
+    bottom: 49%;
+    opacity: 1;
+}
+
+.team-poster img {
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
