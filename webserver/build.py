@@ -51,12 +51,16 @@ def get_drones():
     #              }
     # use function translate() to covert the coodirnates to svg coordinates
     #=============================================================================================================================================
-    long = float(redis_server.hget("1", "drone_longitude")), float(redis_server.hget("1", "drone_latitude"))
-    drone1_longitude_svg, drone1_latitude_svg = translate(long)
+    coords = float(redis_server.hget("1", "drone_longitude")), float(redis_server.hget("1", "drone_latitude"))
+    #coords[0] = float(redis_server.hget("1", "drone_longitude"))
+    #coords = (13.20896, 55.71103)
+    drone1_longitude_svg, drone1_latitude_svg = translate(coords)
     drone1_status = redis_server.hget("1", "drone_status")
     
-    long = float(redis_server.hget("2", "drone_longitude")), float(redis_server.hget("2", "drone_latitude"))
-    drone2_longitude_svg, drone2_latitude_svg = translate(long)
+    coords = float(redis_server.hget("2", "drone_longitude")), float(redis_server.hget("2", "drone_latitude"))
+    #coords[0] = float(redis_server.hget("2", "drone_longitude"))
+    #coords = (13.20896, 55.71103)
+    drone2_longitude_svg, drone2_latitude_svg = translate(coords)
     drone2_status = redis_server.hget("2", "drone_status")
     
     drone_dict = {'DRONE_1':{'longitude': drone1_longitude_svg, 'latitude': drone1_latitude_svg, 'status': drone1_status},

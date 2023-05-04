@@ -11,7 +11,7 @@ app = Flask(__name__)
 CORS(app, supports_credentials=True)
 app.secret_key = 'dljsaklqk24e21cjn!Ew@@dsa5'
 
-drones = ["2", "1"]
+drones = ["1", "2"]
 
 # change this to connect to your redis server
 # ===============================================
@@ -50,8 +50,6 @@ def route_planner():
         # if no drone is availble:
         drone1 = redis_server.hget(drones[0], "drone_status")
         drone2 = redis_server.hget(drones[1], "drone_status")
-        print(drone1)
-        print(drone2)
         
         message = 'No available drone, try later'
         for drone in drones:
@@ -68,21 +66,21 @@ def route_planner():
             
         
         
-        if (drone1 == "idle"):
-            # 2. Get the IP of available drone, 
-            DRONE_URL = 'http://' + redis_server.hget("1", "droneIP") +':5000'
-            # 3. Send coords to the URL of available drone
-            message = 'Got address and sent request to the drone'
-            send_request(DRONE_URL, coords)
-        elif (drone2 == "idle"):
-            # 2. Get the IP of available drone, 
-            DRONE_URL = 'http://' + redis_server.hget("2", "droneIP") +':5000'
-            # 3. Send coords to the URL of available drone
-            message = 'Got address and sent request to the drone'
-            send_request(DRONE_URL, coords)
-        else:
-            message = 'No available drone, try later'
-        return message
+        #if (drone1 == "idle"):
+        #    # 2. Get the IP of available drone, 
+        #    DRONE_URL = 'http://' + redis_server.hget("1", "droneIP") +':5000'
+        #    # 3. Send coords to the URL of available drone
+        #    message = 'Got address and sent request to the drone'
+        #    send_request(DRONE_URL, coords)
+        #elif (drone2 == "idle"):
+        #    # 2. Get the IP of available drone, 
+        #    DRONE_URL = 'http://' + redis_server.hget("2", "droneIP") +':5000'
+        #    # 3. Send coords to the URL of available drone
+        #    message = 'Got address and sent request to the drone'
+        #    send_request(DRONE_URL, coords)
+        #else:
+        #    message = 'No available drone, try later'
+        #return message
     return message
         # ======================================================================
 

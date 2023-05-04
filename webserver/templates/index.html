@@ -27,7 +27,7 @@
           }
         }
       };
-      xhttp.open("POST", "http://192.168.1.1:5002/planner", true);
+      xhttp.open("POST", "http://192.168.1.3:5002/planner", true);
       xhttp.send(JSON.stringify(data));
     }
   </script>
@@ -85,7 +85,7 @@
     var set_delay = 50,
     callout = function () {
     $.ajax({
-      url: 'http://192.168.1.1:5000/get_drones'
+      url: 'http://192.168.1.3:5000/get_drones'
     })
     .done(function (server_response) {
       var avalaible_drones = Object.keys(server_response)
