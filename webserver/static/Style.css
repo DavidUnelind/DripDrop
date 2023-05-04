@@ -3,7 +3,9 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
-
+body{
+    display: block;
+}
 
 .header{
     /*overflow: hidden;*/
@@ -67,10 +69,10 @@ nav{
 .text-box{
     width: 90%;
     color: dodgerblue;
-    position: absolute;
-    top: 35%;
+    position: relative;
+    top: 10%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,10%);
     text-align: center;
 }
 .text-box h1{
@@ -101,13 +103,16 @@ nav{
 }
 
 .map{
+    /*margin-top: 10%;
     width: 90%;
-    margin-top: 400px;
+    
+    margin-left: 50%;
     color: black;
     position: relative;
     top: 90%;
     left: 10%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);*/
+    display: block;
     text-align: center;
 }
 .map p{
@@ -118,7 +123,8 @@ nav{
 }
 /* ändra margins, större mellanrum mellan rutorna!?? */
 .address-input{
-    margin: 30px 0 40px;
+    margin-top: 150px;
+    margin-bottom: -100px;
     font-size: 16px;
     font-weight: 200;
     color: black;

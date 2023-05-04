@@ -77,13 +77,18 @@
 <body>
 <section class="header">
   <nav>
-    <a href="index.html" class="logo"><img src="../static/images/newDroneIcon.png"></a>
+    <a href="/" class="logo"><img src="../static/images/newDroneIcon.png"></a>
     <div class="header-right">
       <a class="active" href="index.html">Home</a>
-      <a href="contact.html">Contact</a>
-      <a href="about.html">About</a>
+      <a href="/contact">Contact</a>
+      <a href="/about">About</a>
     </div>
   </nav>
+
+  
+</section>
+
+<section class="map">
 
   <div class="text-box">
     <h1>
@@ -94,19 +99,17 @@
     </p>
     <!--- <a href="" class="hero-btn">Ask Us To Know More</a> --->
   </div>
-</section>
 
-<section class="map">
-
-  <p>Current Position: </p>
-  <div id="txt"></div>
-  <form action="javascript:Submit()" class="address-input">
-    <label for="fname">From address:</label><br>
-    <input type="text" id="faddr" name="faddr"><br>
-    <label for="lname">To address:</label><br>
-    <input type="text" id="taddr" name="taddr"><br><br>
-    <input type="submit" value="Search addresses">
-  </form>
+  <div class="address-input">
+    <p>Current Position:</p>
+    <form action="javascript:Submit()">
+      <label for="fname">From address:</label><br>
+      <input type="text" id="faddr" name="faddr"><br>
+      <label for="lname">To address:</label><br>
+      <input type="text" id="taddr" name="taddr"><br><br>
+      <input type="submit" value="Search addresses">
+    </form>
+  </div>
   <object id="map" data="static/images/lund-map.svg" type="image/svg+xml" ></object>
   <script>
     var set_delay = 50,
