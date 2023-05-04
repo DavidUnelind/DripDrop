@@ -11,7 +11,7 @@ app.secret_key = 'dljsaklqk24e21cjn!Ew@@dsa5'
 
 #Give a unique ID for the drone
 #===================================================================
-myID = "1"
+myID = "2"
 #===================================================================
 
 # Get initial longitude and latitude the drone
@@ -23,7 +23,6 @@ file = open('longlat.txt', 'w')
 file.write(str(current_longitude) + "\n" + str(current_latitude))
 file.close()
 
-#current_latitude = open("longlat.txt", "Access_Mode") #55.71103
 #===================================================================
 
 drone_info = {'id': myID,
@@ -31,14 +30,21 @@ drone_info = {'id': myID,
                 'latitude': float(current_latitude),
                 'status': 'idle'
             }
-print("hej" + str(current_longitude) + str(current_latitude))
 
 # Fill in the IP address of the server, and send the initial location of the drone to the SERVER
+<<<<<<< HEAD:pi/drone.py
 #===================================================================
+
+print(drone_info)
+=======
+#==================================================================
+
+>>>>>>> 288236207db39fe045b584626e2ac7e893d0c590:pi2/drone.py
 SERVER="http://192.168.1.3:5001/drone"
 with requests.Session() as session:
     resp = session.post(SERVER, json=drone_info)
 #===================================================================
+
 
 @app.route('/', methods=['POST'])
 def main():
