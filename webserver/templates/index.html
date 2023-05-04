@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <h1>DripDrop</h1>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta charset="utf-8">
   <title>DripDrop</title>
+  <link rel="stylesheet" href="Style.css">
   <link rel="icon" type="image/png" href="../static/images/newDroneIcon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,100;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
   <script type="text/javascript">
@@ -71,9 +75,32 @@
 </head>
 
 <body>
+<section class="header">
+  <nav>
+    <a href="index.html" class="logo"><img src="../static/images/newDroneIcon.png"></a>
+    <div class="header-right">
+      <a class="active" href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+
+  <div class="text-box">
+    <h1>
+      DripDrop
+    </h1>
+    <p>
+      Information.
+    </p>
+    <!--- <a href="" class="hero-btn">Ask Us To Know More</a> --->
+  </div>
+</section>
+
+<section class="map">
+
   <p>Current Position: </p>
   <div id="txt"></div>
-  <form action="javascript:Submit()">
+  <form action="javascript:Submit()" class="address-input">
     <label for="fname">From address:</label><br>
     <input type="text" id="faddr" name="faddr"><br>
     <label for="lname">To address:</label><br>
@@ -102,7 +129,17 @@
     };
     callout();    
   </script>
+</section>
 
+<!---- Footer ---->
+<footer>
+  <div class="footer-content">
+    <h4>About DripDrop</h4>
+    <p>The most important thing about us is that we are professional.</p>
+    <p> </p>
+    <p>Made with <i class="fa fa-heart-o"></i> by the DripDrop team</p>
+  </div>
+</footer>
 
 </body>
 </html>
