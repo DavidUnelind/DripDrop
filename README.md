@@ -7,6 +7,9 @@ pip3 install -r requirements.txt
 ## On the Server Pi:
 Go to `/webserver`, start your Redis server and run the two flask servers:
 1. On Terminal 1, start your redis server
+```
+redis-server --port 7777
+```
 2. On Terminal 2, run `database.py`
 ```
 export FLASK_APP=database.py
@@ -35,6 +38,3 @@ export FLASK_APP=drone.py
 export FLASK_ENV=development
 flask run --host 0.0.0.0
 ```
-
-Note: Don't user `python3 build.py` to run the servers, since this does not porvide all the functionalities requied by the application.
-
