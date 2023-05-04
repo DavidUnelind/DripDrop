@@ -1,0 +1,170 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.header{
+    /*overflow: hidden;*/
+    background-color: dodgerblue;
+    padding: 40px 10px;
+    min-height: 5vh;
+}
+
+/* Style the header links */
+.header a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 25px;
+    border-radius: 4px;
+}
+
+/* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+.header a.logo {
+    /*font-size: 25px;
+    font-weight: bold;*/
+    height: 40px;
+    width: 40px;
+    scale: 5%;
+    position: relative;
+    top: -25px;
+}
+
+/* Change the background color on mouse-over */
+/*
+.header a:hover {
+    background-color: lightskyblue;
+    color: black;
+}*/
+
+/* Style the active/current link*/
+.header a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+
+/* Float the link section to the right */
+.header-right {
+    float: right;
+}
+.header-right a:hover{
+    background-color: lightskyblue;
+    color: black;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /*float: left;*/
+}
+
+.text-box{
+    width: 90%;
+    color: dodgerblue;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.text-box h1{
+    font-size: 62px;
+    font-weight: normal;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 16px;
+    font-weight: 200;
+    color: black;
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    border: 1px solid cornflowerblue;
+    background: cornflowerblue;
+    transition: 1s;
+}
+
+.map{
+    width: 90%;
+    margin-top: 900px;
+    margin-left: 70%;
+    color: black;
+    position: relative ;
+    top: 90%;
+    left: 10%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.map p{
+    margin: 10px 0 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+}
+/* ändra margins, större mellanrum mellan rutorna!?? */
+.address-input{
+    margin: 30px 0 40px;
+    font-size: 16px;
+    font-weight: 200;
+    color: black;
+}
+
+/* footer */
+footer{
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: skyblue;
+    height: auto;
+    padding-top: 40px;
+    width: 100vw;
+    color: white;
+}
+.footer-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.footer-content h4{
+    margin-bottom: 25px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.footer-content p{
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+.fa-heart-o {
+    color: darkred;
+}
+
+/* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
+@media screen and (max-width: 500px) {
+    .header a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+    .header-right {
+        float: none;
+    }
+}

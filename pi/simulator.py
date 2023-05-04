@@ -68,13 +68,8 @@ if __name__ == "__main__":
     from_coords = (args.flong, args.flat)
     to_coords = (args.tlong, args.tlat)
 
-    print(current_coords, from_coords, to_coords)
     drone_long, drone_lat = run(args.id ,current_coords, from_coords, to_coords, SERVER_URL)
-    # drone_long and drone_lat is the final location when drlivery is completed, find a way save the value, and use it for the initial coordinates of next delivery
-    #=============================================================================
-    #my_chords = open('longlat.txt', 'w')
-    #my_chords.WriteLine(drone_long)
-    #my_chords.WriteLine(drone_lat)
+
     file = open('longlat.txt', 'w')
     file.write(str(drone_long) + "\n" + str(drone_lat))
     file.close()

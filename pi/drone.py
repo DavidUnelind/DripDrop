@@ -23,7 +23,6 @@ file = open('longlat.txt', 'w')
 file.write(str(current_longitude) + "\n" + str(current_latitude))
 file.close()
 
-#current_latitude = open("longlat.txt", "Access_Mode") #55.71103
 #===================================================================
 
 drone_info = {'id': myID,
@@ -31,14 +30,16 @@ drone_info = {'id': myID,
                 'latitude': float(current_latitude),
                 'status': 'idle'
             }
-print("hej" + str(current_longitude) + str(current_latitude))
 
 # Fill in the IP address of the server, and send the initial location of the drone to the SERVER
 #===================================================================
+
+print(drone_info)
 SERVER="http://192.168.1.3:5001/drone"
 with requests.Session() as session:
     resp = session.post(SERVER, json=drone_info)
 #===================================================================
+
 
 @app.route('/', methods=['POST'])
 def main():
