@@ -156,6 +156,42 @@ footer{
     color: darkred;
 }
 
+/* ----------- About Page ------------- */
+
+.about{
+    width: 80%;
+    margin: auto;
+    padding-top: 200px;
+    padding-bottom: 50px;
+}
+.row{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.about-col{
+    flex-basis: 48%;
+    padding: 30px 2px;
+}
+.about-col img{
+    width: 50%;
+
+}
+.about-col h1{
+    padding-top: 0;
+}
+.about-col p{
+    padding: 15px 0 25px;
+}
+.blue-btn{
+    border: 1px solid steelblue;
+    background: transparent;
+    color: steelblue;
+}
+.blue-btn:hover{
+    color: white;
+}
+
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
 @media screen and (max-width: 500px) {
     .header a {
