@@ -77,11 +77,14 @@
 <body>
 <section class="header">
   <nav>
-    <a href="/" class="logo"><img src="../static/images/newDroneIcon.png"></a>
+    
+    <img class="logo" src="../static/images/newDroneIcon.png">
+    
     <div class="header-right">
       <a class="active" href="index.html">Home</a>
       <a href="/contact">Contact</a>
       <a href="/about">About</a>
+      <a href="/signin">Sign In</a>
     </div>
   </nav>
 
@@ -90,27 +93,37 @@
 
 <section class="map">
 
+
   <div class="text-box">
     <h1>
       DripDrop
     </h1>
     <p>
-      Information.
+      Skicka paketförfrågningar snabbt och smidigt för att leverera mindre paket direkt, 
+      utan att behöva ta dig till ett lokalt postombud. <br>
+      Med en accept package förfrågan kan du, som med vanlig traditionell post, 
+      omedelbart skicka ett paket till en av dina kontaker. <br>
+      Med en send-me-a-package förfrågan kan du skicka en drönare för att hämta upp ett paket hos en kontakt 
+      och sedan få det levererat till dig. <br>
+      DripDrop har potentialen att underlätta ditt och dina kompisars liv.
     </p>
     <!--- <a href="" class="hero-btn">Ask Us To Know More</a> --->
-  </div>
-
+  </div> 
+  
   <div class="address-input">
-    <p>Current Position:</p>
+    <p>Send Drone with Package:</p>
     <form action="javascript:Submit()">
-      <label for="fname">From address:</label><br>
+      <label for="fname">Pick-up Point:</label><br>
       <input type="text" id="faddr" name="faddr"><br>
-      <label for="lname">To address:</label><br>
+      <label for="lname">Drop-off Point:</label><br>
       <input type="text" id="taddr" name="taddr"><br><br>
-      <input type="submit" value="Search addresses">
+      <input type="submit" value="Book Drone">
     </form>
   </div>
+
+  
   <object id="map" data="static/images/lund-map.svg" type="image/svg+xml" ></object>
+  
   <script>
     var set_delay = 50,
     callout = function () {
@@ -132,9 +145,11 @@
     };
     callout();    
   </script>
+  
+  
 </section>
 
-<!---- Footer ---->
+ 
 <footer>
   <div class="footer-content">
     <h4>About DripDrop</h4>
@@ -144,5 +159,7 @@
   </div>
 </footer>
 
+
 </body>
-</html>
+</html>  
+
