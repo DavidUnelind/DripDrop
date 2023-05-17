@@ -27,12 +27,12 @@ body{
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-.header a.logo {
+.logo {
     /*font-size: 25px;
     font-weight: bold;*/
     height: 40px;
     width: 40px;
-    scale: 5%;
+    
     position: relative;
     top: -25px;
 }
@@ -82,7 +82,7 @@ nav{
 .text-box p{
     margin: 10px 0 40px;
     font-size: 16px;
-    font-weight: 200;
+    font-weight: 400;
     color: black;
 }
 .hero-btn{
@@ -115,7 +115,7 @@ nav{
     display: block;
     text-align: center;
 }
-.map p{
+.address-input p{
     margin: 10px 0 15px;
     font-size: 16px;
     font-weight: bold;
@@ -124,10 +124,14 @@ nav{
 /* ändra margins, större mellanrum mellan rutorna!?? */
 .address-input{
     margin-top: 150px;
-    margin-bottom: -100px;
+   
     font-size: 16px;
     font-weight: 200;
     color: black;
+}
+
+#map {
+    margin-top: 100px;
 }
 
 /* footer */
