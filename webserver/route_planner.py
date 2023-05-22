@@ -16,6 +16,7 @@ drones = ["1", "2"]
 # change this to connect to your redis server
 # ===============================================
 redis_server = redis.Redis(host="localhost",port=7777, decode_responses=True, charset="unicode_escape")
+redis_server.set("numDrones", len(drones))
 # ===============================================
 
 geolocator = Nominatim(user_agent="my_request")
@@ -48,8 +49,6 @@ def route_planner():
         # Here you need to find a drone that is availale from the database. You need to check the status of the drone, there are two status, 'busy' or 'idle', only 'idle' drone is available and can be sent the coords to run delivery
         # 1. Find avialable drone in the database
         # if no drone is availble:
-        drone1 = redis_server.hget(drones[0], "drone_status")
-        drone2 = redis_server.hget(drones[1], "drone_status")
         
         message = 'No available drone, try later'
         for drone in drones:
@@ -62,25 +61,6 @@ def route_planner():
                 send_request(DRONE_URL, coords)
                 break;
         return message
-        
-            
-        
-        
-        #if (drone1 == "idle"):
-        #    # 2. Get the IP of available drone, 
-        #    DRONE_URL = 'http://' + redis_server.hget("1", "droneIP") +':5000'
-        #    # 3. Send coords to the URL of available drone
-        #    message = 'Got address and sent request to the drone'
-        #    send_request(DRONE_URL, coords)
-        #elif (drone2 == "idle"):
-        #    # 2. Get the IP of available drone, 
-        #    DRONE_URL = 'http://' + redis_server.hget("2", "droneIP") +':5000'
-        #    # 3. Send coords to the URL of available drone
-        #    message = 'Got address and sent request to the drone'
-        #    send_request(DRONE_URL, coords)
-        #else:
-        #    message = 'No available drone, try later'
-        #return message
     return message
         # ======================================================================
 
