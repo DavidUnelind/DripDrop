@@ -59,21 +59,15 @@ def get_drones():
     #              }
     # use function translate() to covert the coodirnates to svg coordinates
     #=============================================================================================================================================
-    coords = float(redis_server.hget("1", "drone_longitude")), float(redis_server.hget("1", "drone_latitude"))
-    #coords[0] = float(redis_server.hget("1", "drone_longitude"))
-    #coords = (13.20896, 55.71103)
-    drone1_longitude_svg, drone1_latitude_svg = translate(coords)
-    drone1_status = redis_server.hget("1", "drone_status")
+    num = redis_server.get("numDrones")
+    drone_dict = {}
     
-    coords = float(redis_server.hget("2", "drone_longitude")), float(redis_server.hget("2", "drone_latitude"))
-    #coords[0] = float(redis_server.hget("2", "drone_longitude"))
-    #coords = (13.20896, 55.71103)
-    drone2_longitude_svg, drone2_latitude_svg = translate(coords)
-    drone2_status = redis_server.hget("2", "drone_status")
-    
-    drone_dict = {'DRONE_1':{'longitude': drone1_longitude_svg, 'latitude': drone1_latitude_svg, 'status': drone1_status},
-                  'DRONE_2':{'longitude': drone2_longitude_svg, 'latitude': drone2_latitude_svg, 'status': drone2_status}}
-    
+    for x in range[0, num]:
+        coords = float(redis_server.hget(str(x), "drone_longitude")), float(redis_server.hget(str(x), "drone_latitude"))
+        drone_longitude_svg, drone_latitude_svg = translate(coords)
+        drone_status = redis_server.hget(str(x), "drone_status")
+        drone_dict[str(x)] = {'longitude': drone_longitude_svg, 'latitude': drone_latitude_svg, 'status': drone_status}
+        
     return jsonify(drone_dict)
 
 if __name__ == "__main__":
