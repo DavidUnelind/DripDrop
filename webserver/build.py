@@ -62,7 +62,7 @@ def get_drones():
     num = redis_server.get("numDrones")
     drone_dict = {}
     
-    for x in range[0, num]:
+    for x in range[1, num + 1]:
         coords = float(redis_server.hget(str(x), "drone_longitude")), float(redis_server.hget(str(x), "drone_latitude"))
         drone_longitude_svg, drone_latitude_svg = translate(coords)
         drone_status = redis_server.hget(str(x), "drone_status")
